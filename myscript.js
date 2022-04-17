@@ -7,29 +7,17 @@ function loadQuiz(){
         Q4: {stem: "Prime Minister of Pakistan? ", choices:["Nawaz", "Shahbaz", "Imran", "Bilawal"]},
         Q5: {stem: "Capital of India? ", choices:["Mumbai", "New Delhi", "Gowa", "Luckhnow"]}
     }
-
+    x += "<form>"
     for(let i in quiz){
-        x += "<div>" + i + " " + quiz[i].stem +"<br>" + "<ul>"
+        x += "<div> <p>" + i + " " + quiz[i].stem +"</p>";
         for(let ch of quiz[i].choices){
-            x += "<li>" + ch + "</li>";
+            x += '<input type="radio" id= "' + ch + '" name= "' + i + '" value=' + ch + '></input>';
+            x += "<label for=" + ch +">" + ch + "</label><br>";
         }
         
-        x += "</ul> </div>";
-
-
-        "<label for=" + i +">" + quiz[i].stem + "</label><br>"
+        x += "</div>";      
     }
+    x += "<br>" + "<input type = button value = Evaluate>" + "</form>";
 
     document.getElementById("id01").innerHTML = x;
 }
-
-
-
-{/* <form>
-  <input type="radio" id="html" name="fav_language" value="HTML">
-  <label for="html">HTML</label><br>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">CSS</label><br>
-  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-  <label for="javascript">JavaScript</label>
-</form> */}
