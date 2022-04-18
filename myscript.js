@@ -23,11 +23,8 @@ function loadQuiz(){
     }
     x += "<br>" + "<input type = button value = Evaluate id = btnEval>" + "</form>";
 
-    document.getElementById("id01").innerHTML = x;
-
-    //creating result div
-    const para = document.createElement("p");
-
+    const div1 = document.getElementById("id01");
+    div1.innerHTML = x;
 }
 
 // Event delegation: Event Listener is added to one parent which analyze bubbled events to find
@@ -52,15 +49,23 @@ document.addEventListener('click',function(e){
                 predictions.push("Not-Selected");
             }
         }
-// calculating score
+        // calculating score
         for(let i=0; i < answers.length; i++){
             if(answers[i] === predictions[i]){
                 score++;
             }
         }
-      
-        
-        document.getElementById("result").innerHTML = "Your score is " + score + " out of 5";
+
+        // removing result div and appending again to show animation
+        let rdiv = document.getElementById("result");
+        if (rdiv){
+            rdiv.remove();
+        }
+        const div1 = document.getElementById("id01");
+        rdiv = document.createElement('div');
+        rdiv.id = 'result';
+        rdiv.innerHTML = "Your score is " + score + " out of 5";
+        div1.appendChild(rdiv);
      }
  })
 

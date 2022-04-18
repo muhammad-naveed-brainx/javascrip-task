@@ -1,4 +1,12 @@
 @keyframes example {
-    from {background-color: red; color: white;}
+    from {background-color: white; color: white;}
     to {background-color: yellow; color: black;}
+  }
+
+  #result{
+      background-color: yellow;
+      color: black;
+      animation-name: example;
+      animation-duration: 5s;
+      max-width: 200px;
   }
