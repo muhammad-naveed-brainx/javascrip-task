@@ -1,0 +1,4 @@
+@keyframes example {
+    from {background-color: red; color: white;}
+    to {background-color: yellow; color: black;}
+  }
