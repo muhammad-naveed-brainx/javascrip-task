@@ -26,6 +26,7 @@ function loadQuiz(){
     const div1 = document.getElementById("id01");
     div1.innerHTML = x;
 }
+window.onload = loadQuiz;
 
 // Event delegation: Event Listener is added to one parent which analyze bubbled events to find
 // a match on child events
