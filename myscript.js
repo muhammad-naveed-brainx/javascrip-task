@@ -21,21 +21,21 @@ function loadQuiz(){
         
         x += "</div><br>";      
     }
-    x += "<br>" + "<input type = button value = Evaluate id = btnEval>" + "</form>";
+    x +=  "<input type = button value = Evaluate id = btnEval>" + "</form>";
 
     const div1 = document.getElementById("id01");
     div1.innerHTML = x;
 }
+
 window.onload = loadQuiz;
 
-// Event delegation: Event Listener is added to one parent which analyze bubbled events to find
-// a match on child events
 
-document.addEventListener('click',function(e){
-    let predictions = [];
-    let score = 0;
-    if(e.target && e.target.id== 'btnEval'){
-        // do something
+$(document).ready(function(){
+    // jQuery methods go here...
+    $('#btnEval').click(function(){
+        
+        let predictions = [];
+        let score = 0;
         for(let q in quiz){
             let elements = document.getElementsByName(q);
             let flag = false;
@@ -57,16 +57,9 @@ document.addEventListener('click',function(e){
             }
         }
 
-        // removing result div and appending again to show animation
-        let rdiv = document.getElementById("result");
-        if (rdiv){
-            rdiv.remove();
-        }
-        const div1 = document.getElementById("id01");
-        rdiv = document.createElement('div');
-        rdiv.id = 'result';
-        rdiv.innerHTML = "Your score is " + score + " out of 5";
-        div1.appendChild(rdiv);
-     }
- })
+        $('#result').hide();
+        $('#result').text("Your Score is " + score + " out of 5");
+        $('#result').fadeIn(3000);
+    });
+  });
 
